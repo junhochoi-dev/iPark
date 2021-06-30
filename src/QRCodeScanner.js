@@ -48,7 +48,6 @@ const ScanScreen = () => {
 
   useEffect(() => {
     try {
-
       console.log(API_URL + 'memberData/' + email.replace('"', ''));
       fetch(API_URL + 'memberData/' + email.replace(/\"/gi, '')) //qr 인식시 큰따옴표 삭제 , 전체 MeberData에 get(정보있는지,없을때도 예외처리 해줘야 함)
         .then(response => response.json())
