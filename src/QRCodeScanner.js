@@ -30,13 +30,7 @@ const ScanScreen = () => {
 
   const [scanned, setScanned] = useState(false);
   const API_URL = 'http://163.152.223.34:8000/';
-  const hi = () => {console.log("hi")}
-  const startScan = () => {
-    if (scanner) {
-      scanner._setScanning(false);
-    }
-  };
-
+  
   const onSuccess = e => {
     console.log("e.data 타입:", typeof e.data)
     const userInfo = JSON.parse(e.data);   
