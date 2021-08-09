@@ -7,6 +7,7 @@ import {createStackNavigator} from '@react-navigation/stack'; //
 import HomeScreen from './src/home';
 
 //import LoginButton from './src/loginButton';
+import LoadingScreen from './src/loading';
 import LogoTitle from './src/logo';
 import LoginScreen from './src/login';
 import AdminScreen from './src/admin';
@@ -28,7 +29,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Login"
+        initialRouteName="Loading"
         screenOptions={{
           headerStyle: {
             backgroundColor: '#A33B39',
@@ -39,6 +40,11 @@ const App = () => {
             color: 'white',
           },
         }}>
+        <Stack.Screen 
+          name = "Loading"
+          component={LoadingScreen}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="Login"
           component={LoginScreen}
