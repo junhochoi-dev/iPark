@@ -10,6 +10,7 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
+  RefreshControl,
 } from 'react-native';
 //import {baseProps} from 'react-native-gesture-handler/lib/typescript/handlers/gestureHandlers';
 import { GoogleSignin } from '@react-native-community/google-signin';
@@ -27,6 +28,14 @@ const HomeScreen = ({ route, navigation }) => {
 
   const [userEmail, setUserEmail] = useState(null);
   const [userPhoto, setUserPhoto] = useState(null);
+
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    wait(2000).then(() => setRefreshing(false));
+  }, []);
+
   AsyncStorage.getItem('Email').then(Email => {
     setUserEmail(Email);
   });
@@ -141,6 +150,10 @@ const HomeScreen = ({ route, navigation }) => {
         </View>
 
         <View style={styles.footer} />
+        <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+          />
       </SafeAreaView>
     );
   }
