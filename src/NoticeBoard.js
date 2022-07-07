@@ -15,15 +15,15 @@ import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 const API_URL = 'https://cxz3619.pythonanywhere.com/';
 
 /* item list 바꿔주는 함수 */
-maxlength_t=12
-maxlength_p=30
+maxlength_t=15
+maxlength_p=120
 const Item = ({ item, onPress, style }) => (
   <TouchableOpacity onPress={onPress} style={[styles.item, style]}>
-    <View style={{flex:3}}>
-    <Text style={styles.title}>{item.title.length>=maxlength_t?item.title.substring(0,maxlength_t)+"...":item.title}</Text>
-    <Text style={styles.paragraph}>{item.paragraph.length>=maxlength_p?item.paragraph.substring(0,maxlength_p)+"...":item.paragraph}</Text>
+    <Image style={{width:70,height:70}} source={{uri:item.image}} />
+    <View style={{flex:3, marginLeft: 10}}>
+        <Text style={styles.title}>{item.title.length>=maxlength_t?item.title.substring(0,maxlength_t)+"...":item.title}</Text>
+        <Text style={styles.paragraph}>{item.paragraph.length>=maxlength_p?item.paragraph.substring(0,maxlength_p)+"...":item.paragraph}</Text>
     </View>
-<Image style={{width:60,height:60}} source={{uri:item.image}} />
   </TouchableOpacity>
 );
 
@@ -61,7 +61,13 @@ const NoticeBoard = ({ navigation }) => {
             navigation.navigate('NoticeView', { id: item.id, title: item.title, paragraph: item.paragraph, image: item.image })
             // console.log(item.id)
           }}
-          style={{ backgroundColor }}
+          style={{
+            height: 150,
+            borderRadius: 10,
+            borderWidth: 0.5,
+            borderColor: '#A33B39',
+            justifyContent: 'center',
+          }}
         />
       </View>
     );
@@ -92,14 +98,15 @@ const styles = StyleSheet.create({
     marginTop: StatusBar.currentHeight || 0,
   },
   item: {
-    padding: 20,
+    padding: 10,
     marginVertical: 8,
     marginHorizontal: 16,
-    flexDirection:"row"
+    flexDirection:"row",
   },
   title: {
     fontWeight:"bold",
-    fontSize: 14,
+    fontSize: 17,
+    marginBottom: 10,
   },
   paragraph:{
     fontSize:11,

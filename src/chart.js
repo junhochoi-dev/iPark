@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 
 import React, { useEffect, useState } from 'react';
-import { View, StatusBar, StyleSheet, Dimensions } from 'react-native';
+import { View, StatusBar, StyleSheet, Dimensions, Text } from 'react-native';
 import moment from 'moment-timezone';
 
 import { BarChart } from 'react-native-chart-kit';
@@ -14,6 +14,9 @@ const colors = {
 const Chart = () => {
   const API_URL = 'https://cxz3619.pythonanywhere.com/covidRecord/';
   const [record, setrecord] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  const [recordAM, setrecordAM] = useState([0, 0, 0]);
+  const [recordPM, setrecordPM] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0]);
+
 
   console.log('chart');
 
@@ -44,6 +47,9 @@ const Chart = () => {
           });
           console.log('temp_arr:', temp_arr);
           setrecord(temp_arr);
+
+          setrecordAM(temp_arr.slice(0, 3));
+          setrecordPM(temp_arr.slice(3));
         });
     } catch (e) {
       console.log('error: ', e);
@@ -51,40 +57,85 @@ const Chart = () => {
   }, []);
 
   return (
-    <View style={{ flex: 1, padding: 5 }}>
+    <View style={{ flex: 1, paddingLeft: 5, paddingRight: 5, justifyContent: 'center', flexDirection: 'row'}}>
+      <View>
+        <Text style={{paddingLeft: 20, fontWeight: 'bold', textAlign: 'left',}}>AM</Text>
+          <BarChart
+              data={{
+                labels: [
+                  // eslint-disable-next-line prettier/prettier
+                  '7시', '8시', '9시',
+                ],
+                datasets: [
+                  {
+                    data: recordAM,
+                  },
+                ],
+              }}
+                width={Dimensions.get('window').width / 2 - 80}
+                height={Dimensions.get('window').width / 2}
+              horizontalLabelRotation={0}
+              verticalLabelRotation={0}
+              showBarTops={false}
+              showValuesOnTopOfBars={true}
+              fromZero={true}
+              flatColor={true}
+              yAxisSuffix='명'
+              chartConfig={{
+                backgroundColor: 'black',
+                backgroundGradientFrom: '#eff3ff',
+                backgroundGradientTo: '#efefef',
+                fillShadowGradientOpacity: 1,
+                fillShadowGradient: '#A33B39',
+                decimalPlaces: 0,
+                barRadius: 3,
+                barPercentage: 0.2,
+                color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+                style: {
+                  borderRadius: 16,
+                },
+              }}
+            />
+      </View>
+      <View>
+        <Text style={{paddingRight: 10, fontWeight: 'bold', textAlign: 'right'}}>PM</Text>
       <BarChart
-        data={{
-          labels: [
-            // eslint-disable-next-line prettier/prettier
-            '6', '7', '8', '13', '14', '15', '16', '17', '18', '19', '20', '21',
-          ],
-          datasets: [
-            {
-              data: record,
+          data={{
+            labels: [
+              // eslint-disable-next-line prettier/prettier
+              '13시', '14시', '15시', '16시', '17시', '18시', '19시', '20시', '21시'
+            ],
+            datasets: [
+              {
+                data: recordPM,
+              },
+            ],
+          }}
+          width={Dimensions.get('window').width / 2 + 80}
+          height={Dimensions.get('window').width / 2}
+          horizontalLabelRotation={0}
+          verticalLabelRotation={0}
+          showBarTops={false}
+          showValuesOnTopOfBars={true}
+          fromZero={true}
+          flatColor={true}
+          yAxisSuffix='명'
+          chartConfig={{
+            backgroundColor: 'black',
+            backgroundGradientFrom: '#eff3ff',
+            backgroundGradientTo: '#efefef',
+            fillShadowGradientOpacity: 1,
+            fillShadowGradient: '#A33B39',
+            decimalPlaces: 0,
+            barRadius: 3,
+            barPercentage: 0.2,
+            color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+            style: {
+              borderRadius: 16,
             },
-          ],
-          barColors: ['blue'],
-        }}
-        flatColor={true}
-        width={Dimensions.get('window').width - 16}
-        height={Dimensions.get('window').width / 2}
-        showBarTops={false}
-        fromZero={true}
-        chartConfig={{
-          backgroundColor: 'black',
-          backgroundGradientFrom: '#eff3ff',
-          backgroundGradientTo: '#efefef',
-          fillShadowGradientOpacity: 1,
-          fillShadowGradient: 'blue',
-          decimalPlaces: 0,
-          barRadius: 5,
-          barPercentage: 0.3,
-          color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-          style: {
-            borderRadius: 16,
-          },
-        }}
-      />
+          }}
+        />
+      </View>
     </View>
   );
 };

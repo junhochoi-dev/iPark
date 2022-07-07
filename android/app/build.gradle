@@ -138,11 +138,11 @@ android {
         applicationId "com.ipark_ku"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 17
+        versionCode 31
         missingDimensionStrategy 'react-native-camera', 'general'
         
         multiDexEnabled true
-        versionName "1.2"
+        versionName "1.2.7"
     }
     splits {
         abi {

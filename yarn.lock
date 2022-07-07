@@ -5862,6 +5862,11 @@
     "git-source" "^1.1.0"
     "package-json" "^2.3.1"
 
+"package@^1.0.1":
+  "integrity" "sha1-0lofmeJQbcsn1nBLg9yooxLk7cw="
+  "resolved" "https://registry.npmjs.org/package/-/package-1.0.1.tgz"
+  "version" "1.0.1"
+
 "parent-module@^1.0.0":
   "integrity" "sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g=="
   "resolved" "https://registry.npmjs.org/parent-module/-/parent-module-1.0.1.tgz"

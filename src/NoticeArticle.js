@@ -20,8 +20,8 @@ const NoticeView = ({ route }) => {
         <View style={styles.container}>
             {/* <Text>{route.params.id}</Text> */}
             <Text style={styles.title}>{route.params.title}</Text>
+            <Image style={styles.img} source={{ uri: img }} />
             <ScrollView style={styles.text}>
-                <Image style={styles.img} source={{ uri: img }} />
                 <Text>{'\n'}{route.params.paragraph}{'\n'}</Text>
             </ScrollView>
         </View>
@@ -37,16 +37,16 @@ const styles = StyleSheet.create({
     title: {
         fontWeight: 'bold',
         fontSize: 30,
-        marginTop: 30
+        margin: 30
     },
     text: {
-        marginVertical: 50,
+        marginVertical: 10,
         padding: 20,
     },
     img: {
-        width: 200,
-        height: 200,
-        resizeMode: "contain"
+        width: 250,
+        height: 250,
+        resizeMode: "contain",
     }
 })
 
