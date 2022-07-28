@@ -46,12 +46,7 @@ const LoginScreen = ({navigation}) => {
         <AppleSignIn />
         <SnsGoogleLogin /> 
         <Text style={{color:'white' , fontSize:10}}  onPress={()=>Linking.openURL("https://kuipark.blogspot.com/2021/07/ipark-ipakradmin-30.html")}>개인정보처리방침</Text>       
-        <TouchableOpacity
-          style={styles.button}
-          activeOpacity={0.8}
-          onPress={() => navigation.navigate('admin')}>
-          <Text style={styles.btntext}>관리자 로그인</Text>
-        </TouchableOpacity>
+
       </View>
     </View>
   );

@@ -17,11 +17,14 @@ const API_URL = 'https://cxz3619.pythonanywhere.com/';
 /* item list 바꿔주는 함수 */
 maxlength_t=15
 maxlength_p=120
-const Item = ({ item, onPress, style }) => (
+const Item = ({ item, onPress, style, index}) => (
   <TouchableOpacity onPress={onPress} style={[styles.item, style]}>
     <Image style={{width:70,height:70}} source={{uri:item.image}} />
     <View style={{flex:3, marginLeft: 10}}>
-        <Text style={styles.title}>{item.title.length>=maxlength_t?item.title.substring(0,maxlength_t)+"...":item.title}</Text>
+        <View style={{flexDirection: 'row'}}>
+            <Text style={styles.title}>{item.title.length>=maxlength_t?item.title.substring(0,maxlength_t)+"...":item.title}</Text>
+        </View>
+
         <Text style={styles.paragraph}>{item.paragraph.length>=maxlength_p?item.paragraph.substring(0,maxlength_p)+"...":item.paragraph}</Text>
     </View>
   </TouchableOpacity>
@@ -59,13 +62,12 @@ const NoticeBoard = ({ navigation }) => {
           onPress={() => {
             setSelectedId(item.id);
             navigation.navigate('NoticeView', { id: item.id, title: item.title, paragraph: item.paragraph, image: item.image })
-            // console.log(item.id)
           }}
           style={{
             height: 150,
             borderRadius: 10,
-            borderWidth: 0.5,
-            borderColor: '#A33B39',
+            borderColor: 'white',
+            backgroundColor: 'white',
             justifyContent: 'center',
           }}
         />
@@ -95,7 +97,6 @@ const NoticeBoard = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
   },
   item: {
     padding: 10,

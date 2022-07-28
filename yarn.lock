@@ -6297,6 +6297,13 @@
   "resolved" "https://registry.npmjs.org/react-native-progress-circle/-/react-native-progress-circle-2.1.0.tgz"
   "version" "2.1.0"
 
+"react-native-progress@^5.0.0":
+  "integrity" "sha512-KjnGIt3r9i5Kn2biOD9fXLJocf0bwxPRxOyAgXEnZTJQU2O+HyzgGFRCbM5h3izm9kKIkSc1txh8aGmMafCD9A=="
+  "resolved" "https://registry.npmjs.org/react-native-progress/-/react-native-progress-5.0.0.tgz"
+  "version" "5.0.0"
+  dependencies:
+    "prop-types" "^15.7.2"
+
 "react-native-qrcode-scanner@1.5.4":
   "integrity" "sha512-FqY6C+vi+1u7XUunCfCBoBGTjEhK9mIOhthOBgmCWH2xAXZkytrRV7ycCmnkTIFMqOIWzomlfSc7l+2vF01BzA=="
   "resolved" "https://registry.npmjs.org/react-native-qrcode-scanner/-/react-native-qrcode-scanner-1.5.4.tgz"
@@ -6348,12 +6355,12 @@
   "resolved" "https://registry.npmjs.org/react-native-sound-player/-/react-native-sound-player-0.11.0.tgz"
   "version" "0.11.0"
 
-"react-native-svg@^9.6.4", "react-native-svg@> 6.4.1", "react-native-svg@9.12.0":
+"react-native-svg@*", "react-native-svg@^9.6.4", "react-native-svg@> 6.4.1", "react-native-svg@9.12.0":
   "integrity" "sha512-NoEiYCmTqgNtjDhTHfB7iARGz4AkTzu191Rr6jrGTchp5/ZdwpmYG/9qXWXTDDNULX5xChljI6IL/gkynfEenw=="
   "resolved" "https://registry.npmjs.org/react-native-svg/-/react-native-svg-9.12.0.tgz"
   "version" "9.12.0"
 
-"react-native-vector-icons@8.1.0":
+"react-native-vector-icons@^8.1.0":
   "integrity" "sha512-sHIdBB6Y0dHaot2fMXgy5J/hhCn5YuyN7SKDNFgPzL8KA1oF2/v7mgYMavnK7LIIs2dJoGnDANKf61dsU+TZlg=="
   "resolved" "https://registry.npmjs.org/react-native-vector-icons/-/react-native-vector-icons-8.1.0.tgz"
   "version" "8.1.0"

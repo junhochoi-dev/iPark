@@ -13,15 +13,12 @@ import {
 import { ScrollView } from 'react-native-gesture-handler';
 
 const NoticeView = ({ route }) => {
-
     const img = route.params.image
-    console.log(img)
     return (
         <View style={styles.container}>
-            {/* <Text>{route.params.id}</Text> */}
             <Text style={styles.title}>{route.params.title}</Text>
-            <Image style={styles.img} source={{ uri: img }} />
             <ScrollView style={styles.text}>
+                <Image style={styles.img} source={{ uri: img }} />
                 <Text>{'\n'}{route.params.paragraph}{'\n'}</Text>
             </ScrollView>
         </View>
@@ -36,16 +33,16 @@ const styles = StyleSheet.create({
     },
     title: {
         fontWeight: 'bold',
-        fontSize: 30,
-        margin: 30
+        fontSize: 25,
+        margin: 10,
     },
     text: {
         marginVertical: 10,
         padding: 20,
     },
     img: {
-        width: 250,
-        height: 250,
+        width: '100%',
+        height: 300,
         resizeMode: "contain",
     }
 })

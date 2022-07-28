@@ -41,7 +41,7 @@
     "react-native-screens": "3.3.0",
     "react-native-sound-player": "0.11.0",
     "react-native-svg": "9.12.0",
-    "react-native-vector-icons": "8.1.0",
+    "react-native-vector-icons": "^8.1.0",
     "react-native-webview": "11.6.4",
     "react-native-youtube": "2.0.2",
     "set-value": "4.1.0"
